@@ -12,6 +12,7 @@ import google.api_core.exceptions as google_exceptions
 import google.generativeai as genai
 from pypdf import PdfReader
 import chromadb
+from chromadb import Client
 from chromadb.config import Settings
 from sentence_transformers import SentenceTransformer
 import torch
