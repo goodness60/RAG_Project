@@ -98,7 +98,7 @@ st.title("💬 Chat with Multiple PDFs (Gemini + Chroma)")
 st.sidebar.header("Settings")
 if st.sidebar.button("🗑️ Clear Chat"):
     st.session_state.messages = []
-    st.experimental_rerun()
+    st.rerun()
 
 # Only index PDFs once
 if "indexed" not in st.session_state:
