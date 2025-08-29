@@ -1,3 +1,7 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import os
 import time
 from typing import List
@@ -25,7 +29,6 @@ embedder = SentenceTransformer("all-MiniLM-L6-v2", device=device)
 
 chroma_client = chromadb.Client(
     Settings(
-        chroma_db_impl="duckdb+parquet",
         persist_directory=None  # disables disk persistence
     )
 )
