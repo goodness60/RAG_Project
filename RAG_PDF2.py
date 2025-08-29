@@ -27,12 +27,7 @@ model = genai.GenerativeModel("gemini-1.5-flash")
 embedder = SentenceTransformer("all-MiniLM-L6-v2", device=device)
 
 
-chroma_client = chromadb.Client(
-    Settings(
-        persist_directory=None  # disables disk persistence
-    )
-)
-
+chroma_client = Client() 
 
 collection = chroma_client.get_or_create_collection("pdf_chunks")
 
