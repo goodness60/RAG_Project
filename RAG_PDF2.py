@@ -78,10 +78,10 @@ def safe_generate(prompts):
         while True:
             try:
                 response = model.generate_content(prompt)
-                responses.append(response.text)   # ✅ append to responses, not response
+                st.write(response.text)   # ✅ append to responses, not response
                 break
             except google_exceptions.ResourceExhausted:
-                wait_time = 20000
+                wait_time = 40
                 st.warning(f"⚠️ Quota exceeded. Retrying in {wait_time}s...")
                 time.sleep(wait_time)
     return responses
