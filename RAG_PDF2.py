@@ -78,7 +78,8 @@ def safe_generate(prompts):
         while True:
             try:
                 response = model.generate_content(prompt)
-                st.write(response.text)   # ✅ append to responses, not response
+                st.chat_message("user").write(prompt)# ✅ append to responses, not response
+                st.chat_message("assistant").write(response.text)
                 break
             except google_exceptions.ResourceExhausted:
                 wait_time = 40
