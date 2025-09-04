@@ -81,7 +81,7 @@ def safe_generate(prompts):
                 responses.append(response.text)   # ✅ append to responses, not response
                 break
             except google_exceptions.ResourceExhausted:
-                wait_time = 40
+                wait_time = 20000
                 st.warning(f"⚠️ Quota exceeded. Retrying in {wait_time}s...")
                 time.sleep(wait_time)
     return responses
